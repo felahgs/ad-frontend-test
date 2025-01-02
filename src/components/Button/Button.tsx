@@ -12,6 +12,7 @@ function Button({
   fluid = false,
   children,
   disabled,
+  className,
   ...rest
 }: ButtonProps) {
   const variantClass = {
@@ -32,6 +33,7 @@ function Button({
         variantClass[variant],
         fluid && "w-full",
         disabled && disabledClass,
+        className,
       )}
       {...rest}
     >
