@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { ReactElement, HTMLProps } from "react";
+import { ReactNode, HTMLProps } from "react";
 
 export interface HeaderProps extends HTMLProps<HTMLElement> {
-  logo: ReactElement;
-  navItems?: ReactElement[];
+  logo: ReactNode;
+  navItems?: ReactNode[];
 }
 
 function Header({ logo, navItems, className, ...rest }: HeaderProps) {
