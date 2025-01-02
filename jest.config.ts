@@ -16,6 +16,9 @@ const config: Config = {
   collectCoverageFrom: ["./src/**"],
   coveragePathIgnorePatterns: [
     "/\\index.ts",
+    "/\\layout.tsx",
+    "/api",
+    "endpoint.ts",
     "\\.css$|\\.scss$|\\.sass$",
     "\\.json$",
     "types\\.ts$",
