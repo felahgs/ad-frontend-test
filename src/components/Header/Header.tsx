@@ -1,7 +1,36 @@
-import React from "react";
+import clsx from "clsx";
+import { ReactElement, HTMLProps } from "react";
 
-function Header() {
-  return <div>Header</div>;
+export interface HeaderProps extends HTMLProps<HTMLElement> {
+  logo: ReactElement;
+  navItems?: ReactElement[];
+}
+
+function Header({ logo, navItems, className, ...rest }: HeaderProps) {
+  const hasNavItems = navItems && navItems.length > 0;
+
+  return (
+    <header
+      className={clsx(
+        "flex  justify-center items-center w-full bg-zinc-100 h-16 px-6",
+        className,
+      )}
+      {...rest}
+    >
+      <div className="flex justify-between align-center w-full max-w-[800px]">
+        {logo}
+        {hasNavItems && (
+          <nav className="flex items-center">
+            <ul className="flex items-center ml-auto space-x-4">
+              {navItems.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
 }
 
 export default Header;
