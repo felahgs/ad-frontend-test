@@ -5,7 +5,7 @@ import Button from "./Button";
 
 describe("Button", () => {
   it("should render properly", () => {
-    render(<Button />);
+    render(<Button>Button </Button>);
 
     const button = screen.getByRole("button", { name: "Button" });
 
@@ -14,11 +14,33 @@ describe("Button", () => {
 
   it("should call onClick when clicking the button", async () => {
     const mockedOnClick = jest.fn();
-    render(<Button onClick={mockedOnClick} />);
+    render(<Button onClick={mockedOnClick}>Button </Button>);
 
     const button = screen.getByRole("button", { name: "Button" });
     await userEvent.click(button);
 
     expect(mockedOnClick).toHaveBeenCalled();
+  });
+
+  it("should not call onClick when the button is disabled", async () => {
+    const mockedOnClick = jest.fn();
+    render(
+      <Button disabled onClick={mockedOnClick}>
+        Button
+      </Button>,
+    );
+
+    const button = screen.getByRole("button", { name: "Button" });
+    await userEvent.click(button);
+
+    expect(mockedOnClick).not.toHaveBeenCalled();
+  });
+
+  it("should have w-full class when fluid is true", () => {
+    render(<Button fluid>Button</Button>);
+
+    const button = screen.getByRole("button", { name: "Button" });
+
+    expect(button).toHaveClass("w-full");
   });
 });
