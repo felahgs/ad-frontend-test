@@ -18,15 +18,7 @@ export const Default: Story = {
     genre: "Action",
     title: "Product Title",
     price: 119,
-    img: (
-      <Image
-        src={gameImage}
-        width={10}
-        height={10}
-        alt="image"
-        className="bg-blue-300 w-full h-full"
-      />
-    ),
+    img: <Image src={gameImage} alt="image" />,
     isNew: true,
   },
 };

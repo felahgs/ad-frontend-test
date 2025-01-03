@@ -9,7 +9,7 @@ describe("ProductCard", () => {
     genre: "Action",
     title: "Product Title",
     price: 50,
-    img: <img src="#" alt="image" className="bg-blue-300 w-full h-full" />,
+    img: <img src="#" alt="image" />,
   };
 
   it("should render properly with all product information", () => {

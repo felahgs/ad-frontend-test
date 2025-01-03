@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Button from "../Button";
+import Button from "@/components/Button";
 
 export interface ProductCardProps {
   genre: string;
@@ -19,8 +19,8 @@ function ProductCard({
   onAddItem,
 }: ProductCardProps) {
   return (
-    <div className="flex flex-col gap-5 w-[380px] p-6 border border-neutral-400 rounded-2xl">
-      <div className="relative h-[240px] w-[332-px] rounded-t-2xl overflow-hidden">
+    <div className="flex flex-col gap-5 max-w-[380px] p-6 border border-neutral-400 rounded-2xl">
+      <div className="relative max-h-[240px] max-w-[332-px] rounded-t-2xl flex items-center justify-center overflow-hidden ">
         {img}
         {isNew && (
           <div className="absolute rounded-md m-3 px-3 py-1 bg-white top-0 left-0">
