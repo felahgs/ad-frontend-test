@@ -1,8 +1,11 @@
 import React, { ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
+import Loader from "../Loader";
+import Loading from "@/app/loading";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "text";
+  loading?: boolean;
   fluid?: boolean;
   disabled?: boolean;
 }
@@ -10,6 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 function Button({
   variant = "primary",
   fluid = false,
+  loading = false,
   children,
   disabled,
   className,
@@ -27,17 +31,25 @@ function Button({
 
   return (
     <button
-      disabled={disabled}
+      disabled={disabled || loading}
       className={clsx(
         "p-3.5 rounded-lg font-bold border trasition-all duration-200 ease-in-out",
         variantClass[variant],
         fluid && "w-full",
         disabled && disabledClass,
+        loading && disabledClass,
         className,
       )}
       {...rest}
     >
-      {children}
+      {loading ? (
+        <div className="flex flex-row ">
+          <Loader className="pr-3" iconClass="h-5 w-5" />
+          Loading ...
+        </div>
+      ) : (
+        children
+      )}
     </button>
   );
 }

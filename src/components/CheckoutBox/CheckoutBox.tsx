@@ -1,8 +1,8 @@
-import { Product } from "@/types/product";
+import { Game } from "@/types/game";
 import React from "react";
 
 export interface CheckoutBoxProps {
-  products?: Product[];
+  products?: Game[];
 }
 
 function CheckoutBox({ products = [] }: CheckoutBoxProps) {

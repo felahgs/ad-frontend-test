@@ -12,12 +12,12 @@ function Header({ logo, navItems, className, ...rest }: HeaderProps) {
   return (
     <header
       className={clsx(
-        "flex  justify-center items-center w-full bg-zinc-100 h-16 px-6",
+        "flex  justify-center items-center w-full bg-zinc-100 h-16 px-6 sm:px-12",
         className,
       )}
       {...rest}
     >
-      <div className="flex justify-between align-center w-full max-w-[800px]">
+      <div className="flex justify-between align-center w-full max-w-screen-xl">
         {logo}
         {hasNavItems && (
           <nav className="flex items-center">

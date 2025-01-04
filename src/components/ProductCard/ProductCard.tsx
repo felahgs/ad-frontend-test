@@ -19,11 +19,11 @@ function ProductCard({
   onAddItem,
 }: ProductCardProps) {
   return (
-    <div className="flex flex-col gap-5 max-w-[380px] p-6 border border-neutral-400 rounded-2xl">
+    <div className="flex flex-col justify-between gap-5 max-w-[380px] p-6 border border-neutral-400 rounded-2xl">
       <div className="relative max-h-[240px] max-w-[332-px] rounded-t-2xl flex items-center justify-center overflow-hidden ">
         {img}
         {isNew && (
-          <div className="absolute rounded-md m-3 px-3 py-1 bg-white top-0 left-0">
+          <div className="absolute rounded-md m-3 px-3 py-1 border border-neutral-200 bg-white top-0 left-0">
             New
           </div>
         )}
@@ -34,10 +34,10 @@ function ProductCard({
           <span className="text-lg">{title}</span>
           <span className="text-xl">${price}</span>
         </div>
+        <Button className="mt-5" fluid variant="secondary" onClick={onAddItem}>
+          ADD TO CART
+        </Button>
       </div>
-      <Button variant="secondary" onClick={onAddItem}>
-        ADD TO CART
-      </Button>
     </div>
   );
 }
