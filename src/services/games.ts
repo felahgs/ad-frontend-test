@@ -9,7 +9,7 @@ export interface GamesQueryParams {
 export interface GamesResponse {
   games: Game[];
   availableFilters: string[];
-  totalPage: number;
+  totalPages: number;
   currentPage: number;
 }
 

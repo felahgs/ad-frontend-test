@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo } from "next/font/google";
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import Image from "next/image";
+import Link from "next/link";
+
+const archivo = Archivo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Apply Digital Test",
+  title: "Gamer Shop",
   description: "Frontend development test for Apply Digital",
 };
 
@@ -14,9 +21,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const HeaderLogo = (
+    <Link href="/">
+      <Image
+        width={150}
+        height={24}
+        alt="gamer shop"
+        src={"gamer-shop.svg"}
+        title="Gamer shop logo"
+      />
+    </Link>
+  );
+
+  const FooterLogo = (
+    <Link href="/">
+      <Image
+        width={170}
+        height={44}
+        alt="apply digital"
+        src={"apply-digital.svg"}
+        title="apply digital logo"
+      />
+    </Link>
+  );
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={archivo.className}>
+        <Header logo={HeaderLogo} />
+        {children}
+        <Footer>{FooterLogo}</Footer>
+      </body>
     </html>
   );
 }

@@ -1,3 +1,4 @@
+import { Primary } from "@/components/Button/Button.stories";
 import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
 
@@ -9,6 +10,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        stroke: {
+          secondary: colors.neutral[700],
+        },
+        icon: {
+          primary: colors.neutral[400],
+        },
+      },
       textColor: {
         primary: colors.neutral[700],
       },
